@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-primary: var(--color-primary);
+  --color-text: var(--color-text);
+  --color-accent: var(--color-accent);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
+  
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+:root {
+  /* Light Mode Defaults */
+  --color-primary: #f8fafc;
+  --color-text: #1e293b;
+  --color-accent: #0284c7; /* Darker blue for light mode contrast */
+  --color-secondary: #2563eb;
+  --color-tertiary: #16a34a;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-nav-bg: rgba(248, 250, 252, 0.8);
+}
+
+.dark {
+  /* Dark Mode Defaults */
+  --color-primary: #0f172a;
+  --color-text: #e2e8f0;
+  --color-accent: #61dafb;
+  --color-secondary: #3178c6;
+  --color-tertiary: #3c873a;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-nav-bg: rgba(15, 23, 42, 0.7);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Base Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Custom Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-nav {
+  background: var(--glass-nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-accent), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.translate-z-10 {
+  transform: translateZ(20px);
+}
+
+.translate-z-20 {
+  transform: translateZ(40px);
+}
